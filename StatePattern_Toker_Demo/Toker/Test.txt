@@ -1,13 +1,15 @@
 Test.txt
 ========
-//C style comment test
-/Not C style comment
-/* CPP
+1. //C style comment test
+2. /Not C style comment
+3. /* CPP
 Style
 Comment
 Test */
-'Single Quote Test'
-"Double Quote Test"
-Underscore_File_Test
-abc.=*123 4 56 789
-<>=+*-(){}[]
+5. 'Single Quote Test'
+5. "Double Quote Test"
+6. Underscore_File_Test
+7. abc.=*123 4 56 789
+8. <>=+*-(){}[]
+9. Special two character tokens: <<, >>, ::, ++, --, ==, +=, -=, *=, /=, &&, ||
+10. Special one character tokens: <, >, [, ], (, ), {, }, :, =, +, -, *

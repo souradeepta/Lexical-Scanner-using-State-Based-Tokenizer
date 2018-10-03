@@ -48,6 +48,7 @@ namespace Toker
             sqs_ = new SingleQuoteState(this);
             dqs_ = new DoubleQuoteState(this);
             ccs_ = new CCommentState(this);
+            cppcs_ = new CppCommentState(this);
 
 
             currentState_ = ws_;
@@ -58,6 +59,7 @@ namespace Toker
         internal SingleQuoteState sqs_ { get; set; }
         internal DoubleQuoteState dqs_ { get; set; }
         internal CCommentState ccs_ { get; set; }
+        internal CppCommentState cppcs_ { get; set; }
 
         // more states here
 

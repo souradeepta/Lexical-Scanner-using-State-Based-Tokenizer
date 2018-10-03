@@ -80,6 +80,8 @@ namespace Toker
                 return context.dqs_;
             if(context.ccs_.isCComment(ch))
                 return context.ccs_;
+            if(context.cppcs_.isCppComment(ch))
+                return context.cppcs_;
 
             return context.ps_;
         }
