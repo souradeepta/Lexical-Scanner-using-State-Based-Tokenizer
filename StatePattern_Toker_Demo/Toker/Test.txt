@@ -1,5 +1,12 @@
 Test.txt
 ========
-"need more tests here"
+//C style comment test
+/* CPP
+Style
+Comment
+Test */
+'Single Quote Test'
+"Double Quote Test"
+Underscore_File_Test
 abc.=*123 4 56 789
 <>=+*-(){}[]

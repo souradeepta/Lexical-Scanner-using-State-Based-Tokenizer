@@ -212,9 +212,10 @@ namespace Toker
       Console.Write(msg);
 
       testToker("../../Test.txt");
-      testToker("../../Toker.cs");
+     // testToker("../../Toker.cs");
 
       Console.Write("\n\n");
+            Console.ReadLine(); 
     }
   }
 }

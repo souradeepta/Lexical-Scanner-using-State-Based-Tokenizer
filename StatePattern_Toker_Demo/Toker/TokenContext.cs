@@ -45,11 +45,20 @@ namespace Toker
             ps_ = new PunctState(this);
             as_ = new AlphaState(this);
             // more states here
+            sqs_ = new SingleQuoteState(this);
+            dqs_ = new DoubleQuoteState(this);
+            ccs_ = new CCommentState(this);
+
+
             currentState_ = ws_;
         }
         internal WhiteSpaceState ws_ { get; set; }
         internal PunctState ps_ { get; set; }
         internal AlphaState as_ { get; set; }
+        internal SingleQuoteState sqs_ { get; set; }
+        internal DoubleQuoteState dqs_ { get; set; }
+        internal CCommentState ccs_ { get; set; }
+
         // more states here
 
         internal TokenState currentState_ { get; set; }

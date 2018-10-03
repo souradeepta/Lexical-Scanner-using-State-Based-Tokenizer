@@ -67,12 +67,17 @@ namespace Toker
             if (Char.IsLetterOrDigit(ch))
                 return context.as_;
 
+
             // Test for strings and comments here since we don't
             // want them classified as punctuators.
 
             // toker's definition of punctuation is anything that
             // is not whitespace and is not a letter or digit
             // Char.IsPunctuation is not inclusive enough
+            if(context.sqs_.isSingleQuote(ch))
+                return context.sqs_;
+            if (context.dqs_.isDoubleQuote(ch))
+                return context.dqs_;
 
             return context.ps_;
         }

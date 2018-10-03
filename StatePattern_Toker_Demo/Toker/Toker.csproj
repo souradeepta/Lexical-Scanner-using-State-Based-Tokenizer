@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphaState.cs" />
+    <Compile Include="DoubleQuoteState.cs" />
+    <Compile Include="SingleQuoteState.cs" />
     <Compile Include="PunctState.cs" />
     <Compile Include="TokenContext.cs" />
     <Compile Include="TokenSourceFile.cs" />
