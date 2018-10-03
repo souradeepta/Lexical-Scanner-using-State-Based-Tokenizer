@@ -82,8 +82,9 @@ namespace Toker
                 return context.ccs_;
             if(context.cppcs_.isCppComment(ch))
                 return context.cppcs_;
-
-            return context.ps_;
+            if (context.sps_.isSpecialPunct(ch))
+                return context.sps_;
+            return context.sps_;
         }
         //----< has tokenizer reached the end of its source? >-----------
 

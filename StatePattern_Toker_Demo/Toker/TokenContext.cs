@@ -49,6 +49,8 @@ namespace Toker
             dqs_ = new DoubleQuoteState(this);
             ccs_ = new CCommentState(this);
             cppcs_ = new CppCommentState(this);
+            sps_ = new SpecialPunctState(this);
+
 
 
             currentState_ = ws_;
@@ -60,6 +62,7 @@ namespace Toker
         internal DoubleQuoteState dqs_ { get; set; }
         internal CCommentState ccs_ { get; set; }
         internal CppCommentState cppcs_ { get; set; }
+        internal SpecialPunctState sps_ { get; set; }
 
         // more states here
 
