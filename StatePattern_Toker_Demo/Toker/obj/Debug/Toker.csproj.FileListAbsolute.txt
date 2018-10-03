@@ -5,3 +5,10 @@ Y:\NotReleasedYet\Toker\Toker\bin\Debug\Toker.exe
 Y:\NotReleasedYet\Toker\Toker\bin\Debug\Toker.pdb
 Y:\NotReleasedYet\Toker\Toker\obj\Debug\Toker.exe
 Y:\NotReleasedYet\Toker\Toker\obj\Debug\Toker.pdb
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\obj\Debug\Toker.csprojAssemblyReference.cache
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\obj\Debug\Toker.csproj.CoreCompileInputs.cache
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\bin\Debug\Toker.exe.config
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\bin\Debug\Toker.exe
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\bin\Debug\Toker.pdb
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\obj\Debug\Toker.exe
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Toker\obj\Debug\Toker.pdb
