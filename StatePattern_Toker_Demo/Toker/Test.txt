@@ -1,6 +1,7 @@
 Test.txt
 ========
 //C style comment test
+/Not C style comment
 /* CPP
 Style
 Comment

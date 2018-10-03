@@ -78,6 +78,8 @@ namespace Toker
                 return context.sqs_;
             if (context.dqs_.isDoubleQuote(ch))
                 return context.dqs_;
+            if(context.ccs_.isCComment(ch))
+                return context.ccs_;
 
             return context.ps_;
         }

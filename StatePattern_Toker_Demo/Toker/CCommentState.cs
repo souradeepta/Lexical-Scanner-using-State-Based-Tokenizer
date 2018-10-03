@@ -51,9 +51,14 @@ namespace Toker
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            if (ch == '\/')
-
-                return true;
+            if (ch == '/')
+            {
+                char nextItem2 = (char)context_.src.peek(1);
+                if (nextItem2 == '/')
+                    return true;
+                else
+                    return false;
+            }
             else
                 return false;
         }
@@ -62,10 +67,8 @@ namespace Toker
         override public Token getTok()
         {
             Token tok = new Token();
-            tok.Append((char)context_.src.next());          // first is alpha
-            //char terminator_quote = (char)context_.src.peek();
-            //while (terminator_quote != '\'')    // stop when non-alpha
-            while ((char)context_.src.peek() != '\"')
+            tok.Append((char)context_.src.next());          
+            while ((char)context_.src.peek() != '\r')
             {
                 tok.Append((char)context_.src.next());
             }
@@ -74,4 +77,4 @@ namespace Toker
         }
     }
 }
-}
+

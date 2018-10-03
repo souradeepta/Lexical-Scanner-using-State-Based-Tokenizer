@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphaState.cs" />
+    <Compile Include="CCommentState.cs" />
     <Compile Include="DoubleQuoteState.cs" />
     <Compile Include="SingleQuoteState.cs" />
     <Compile Include="PunctState.cs" />
