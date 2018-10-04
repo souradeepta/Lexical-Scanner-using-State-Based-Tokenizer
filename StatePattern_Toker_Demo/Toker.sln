@@ -7,7 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toker", "Toker\Toker.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01BEF429-330E-450A-8A57-67A70561F9A7}"
 	ProjectSection(SolutionItems) = preProject
-		Toker\Test.txt = Toker\Test.txt
+		testSemi.txt = testSemi.txt
+		Toker\TestTokenizer.txt = Toker\TestTokenizer.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemiExpression", "SemiExpression\SemiExpression.csproj", "{8281F086-AF0E-4B9C-8F2A-6CB4530D9996}"

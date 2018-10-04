@@ -48,7 +48,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Toker
+namespace TokerNameSpace
 {
   using Token = StringBuilder;
 
@@ -139,34 +139,6 @@ namespace Toker
     public int lineCount() { return context_.src.lineCount; }
   }
   
-
- 
-
-  
-  ///////////////////////////////////////////////////////////////////
-  // Derived State Classes
-  /* - WhiteSpaceState          Token with space, tab, and newline chars
-   * - AlphaNumState            Token with letters and digits
-   * - PunctuationState         Token holding anything not included above
-   * ----------------------------------------------------------------
-   * - Each state class accepts a reference to the context in its
-   *   constructor and saves in its inherited context_ property.
-   * - It is only required to provide a getTok() method which
-   *   returns a token conforming to its state, e.g., whitespace, ...
-   * - getTok() assumes that the TokenSource's first character 
-   *   matches its type e.g., whitespace char, ...
-   * - The nextState() method ensures that the condition, above, is
-   *   satisfied.
-   * - The getTok() method promises not to extract characters from
-   *   the TokenSource that belong to another state.
-   * - These requirements lead us to depend heavily on peeking into
-   *   the TokenSource's content.
-   */
-  
-  
-  
-  
-
 #if(TEST_TOKER)
 
   class DemoToker
@@ -199,7 +171,7 @@ namespace Toker
       Console.Write("\n =========================");
 
       StringBuilder msg = new StringBuilder();
-      msg.Append("\n  Some things this demo does not do for CSE681 Project #2:");
+    /*  msg.Append("\n  Some things this demo does not do for CSE681 Project #2:");
       msg.Append("\n  - collect comments as tokens");
       msg.Append("\n  - collect double quoted strings as tokens");
       msg.Append("\n  - collect single quoted strings as tokens");
@@ -207,11 +179,11 @@ namespace Toker
       msg.Append("\n  - collect specified character pairs as tokens");
       msg.Append("\n  - integrate with a SemiExpression collector");
       msg.Append("\n  - provide the required package structure");
-      msg.Append("\n");
+      */msg.Append("\n");
 
       Console.Write(msg);
-
-      testToker("../../Test.txt");
+      
+      testToker("../../TestTokenizer.txt");
      //testToker("../../Toker.cs");
 
       Console.Write("\n\n");
