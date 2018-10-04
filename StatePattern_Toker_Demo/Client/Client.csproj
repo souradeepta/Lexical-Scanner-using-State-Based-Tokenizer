@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68F8C30A-2273-4FDD-8BBC-EB360FF91CEC}</ProjectGuid>
+    <ProjectGuid>{E49CB770-97CD-4C43-8A9A-3D5DF3E5566A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ITokenCollection</RootNamespace>
-    <AssemblyName>ITokenCollection</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TokCollection.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ITokenCollection\ITokenCollection.csproj">
+      <Project>{68f8c30a-2273-4fdd-8bbc-eb360ff91cec}</Project>
+      <Name>ITokenCollection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SemiExpression\SemiExpression.csproj">
       <Project>{8281f086-af0e-4b9c-8f2a-6cb4530d9996}</Project>
       <Name>SemiExpression</Name>

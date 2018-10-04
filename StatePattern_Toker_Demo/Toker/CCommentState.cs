@@ -68,7 +68,7 @@ namespace TokerNameSpace
         {
             Token tok = new Token();
             tok.Append((char)context_.src.next());          
-            while ((char)context_.src.peek() != '\r')
+            while ((char)context_.src.peek() != '\r')//|| (char)context_.src.peek() != '\n')
             {
                 tok.Append((char)context_.src.next());
             }

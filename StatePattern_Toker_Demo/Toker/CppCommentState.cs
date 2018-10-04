@@ -70,6 +70,8 @@ namespace TokerNameSpace
             tok.Append((char)context_.src.next());
             while (((char)context_.src.peek() != '/'))
             {
+                if ((char)context_.src.peek() == '\n')
+                    tok.Append("");
                 tok.Append((char)context_.src.next());
             }
             tok.Append((char)context_.src.next());

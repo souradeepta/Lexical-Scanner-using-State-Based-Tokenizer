@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SemiExpressionNameSpace;
 
-namespace TokenCollectionNameSpace
+namespace SemiExpressionNameSpace
 {
     ///////////////////////////////////////////////////////////////////
-    // ITokenSource interface
-    // - Declares operations expected of any source of tokens
-    // - Typically we would use either files or strings.  This demo
-    //   provides a source only for Files, e.g., TokenFileSource, below.
+    // ITokenCollection interface
+   
 
     public interface ITokenCollection
     {
 
         bool CreateSemiObject(string name);
-        
+
     }
     class TokCollection
     {
@@ -31,4 +28,5 @@ namespace TokenCollectionNameSpace
 
         }
     }
+   
 }

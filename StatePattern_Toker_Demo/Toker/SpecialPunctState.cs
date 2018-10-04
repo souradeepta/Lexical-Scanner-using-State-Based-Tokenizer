@@ -35,50 +35,53 @@ namespace TokerNameSpace
     using Token = StringBuilder;
 
     ///////////////////////////////////////////////////////////////////
-    // CppCommentState class
-    // - extracts speical double characters as a token
+    // SpecialPunctState class
+    // - extracts special double characters as a token
     class SpecialPunctState : TokenState
     {
         public SpecialPunctState(TokenContext context)
         {
             context_ = context;
         }
-        //----< manage converting extracted ints to chars >--------------
-
+        
         public bool isSpecialPunct(int i)
         {
             int nextItem = context_.src.peek();
             if (nextItem < 0)
                 return false;
-            string ch = nextItem.ToString();
+            char first = (char)nextItem;
+            StringBuilder opr = new StringBuilder();
+                opr.Append(first.ToString());
+            opr.Append(((char)context_.src.peek(1)).ToString());
+
             string[] opers = new string[]
             {
                  "!=", "==", ">=", "<=", "&&", "||", "--", "++", "::",
                   "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>"
             };
-            if (opers.Equals(nextItem.ToString())
-)
-            {
-                char nextItem2 = (char)context_.src.peek(1);
-                if (nextItem2 == '=')
-                    return true;
-                else
-                    return false;
-            }
+
+            if (opers.Contains(opr.ToString()))
+                return true;
             else
                 return false;
+          /*  char second = (char)context_.src.peek(1);
+            StringBuilder testDouble = new StringBuilder();
+            testDouble.Append(first).Append(second);
+            foreach (string oper in opers)
+            if (oper.Equals(testDouble.ToString()))
+                  return true;
+            return false;*/
         }
-        //----< keep extracting until get none-in-quote >-------------------
 
         override public Token getTok()
         {
             Token tok = new Token();
             tok.Append((char)context_.src.next());
-            while (isSpecialPunct(context_.src.peek()))
-            {
-                tok.Append((char)context_.src.next());
-            }
-            //tok.Append((char)context_.src.next());
+          while (isSpecialPunct(context_.src.peek()))
+          {
+               tok.Append((char)context_.src.next());
+          }
+            tok.Append((char)context_.src.next());
 
             return tok;
         }

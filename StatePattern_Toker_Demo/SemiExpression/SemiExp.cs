@@ -45,10 +45,11 @@ using System.Threading.Tasks;
 using TokerNameSpace;
 
 namespace SemiExpressionNameSpace
+  
 {
     ///////////////////////////////////////////////////////////////////////
     // class CSemiExp - filters token stream and collects semiExpressions
-    class SemiExp
+    class SemiExp 
     {
         Toker toker = null;
         List<string> semiExp = null; // this is a trailing comment
@@ -106,9 +107,9 @@ namespace SemiExpressionNameSpace
                 case ";": return true;
                 case "{": return true;
                 case "}": return true;
-                case "\n":
-                    //     if (this.FindFirst("#") != -1)  // expensive - may wish to cache in get
-                    //          return true;
+                case ">":
+                      if (this.FindFirst("#") != -1)  
+                              return true;
                     return false;
                 default: return false;
             }
@@ -359,6 +360,7 @@ namespace SemiExpressionNameSpace
             string testFile = "../../testSemi.txt";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
+            Console.Write("\n  processing file: {0}\n", testFile);
             while (test.getSemi())
                 test.display();
 

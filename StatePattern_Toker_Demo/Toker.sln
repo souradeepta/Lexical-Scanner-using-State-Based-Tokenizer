@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITokenCollection", "ITokenC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSuite", "TestSuite\TestSuite.csproj", "{2973D899-0228-492B-940E-4594512D79EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{E49CB770-97CD-4C43-8A9A-3D5DF3E5566A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2973D899-0228-492B-940E-4594512D79EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2973D899-0228-492B-940E-4594512D79EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2973D899-0228-492B-940E-4594512D79EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E49CB770-97CD-4C43-8A9A-3D5DF3E5566A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E49CB770-97CD-4C43-8A9A-3D5DF3E5566A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E49CB770-97CD-4C43-8A9A-3D5DF3E5566A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E49CB770-97CD-4C43-8A9A-3D5DF3E5566A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
