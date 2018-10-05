@@ -1,6 +1,7 @@
+//This a C Comment
 
 #include<iostream>
-//This a C Comment
+
 using namespace Testing{
 
 {

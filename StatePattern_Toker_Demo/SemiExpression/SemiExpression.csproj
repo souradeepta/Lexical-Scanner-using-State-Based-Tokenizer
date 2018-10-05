@@ -46,7 +46,6 @@
     <Compile Include="SemiExp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SemiInterfaces\SemiInterfaces.cs" />
-    <Compile Include="SemiSourceFile.cs" />
     <Compile Include="TokCollection.cs" />
   </ItemGroup>
   <ItemGroup>

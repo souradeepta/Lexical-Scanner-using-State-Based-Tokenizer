@@ -1,9 +1,15 @@
-﻿////////////////////////////////////////////////////////////////////////////////
-// Semi.cs - Builds semiExpressions                                          //
-// ver 2.9                                                                  //
-// Jim Fawcett, CSE681 - Software Modeling and Analysis, Fall 2018         //
-// Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
-///////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////
+// Semi.cs - Builds semiExpressions                                       //
+// ver 2.9                                                                //
+// Language:    C#, Visual Studio 2017, .Net Framework 4.7                // 
+// Platform:    HP Pavillion , Win 10                                     //
+// Application: Pr#2 , CSE681, Fall 2018                                  //
+// Authors:  -  Jim Fawcett,                                              // 
+//                CSE681 - Software Modeling and Analysis, Fall 2018      // 
+//           -  Souradeepta Biswas,                                       // 
+//                CSE681 - Software Modeling and Analysis, Fall 2018      //
+//                sobiswas@syr.edu                                        //
+////////////////////////////////////////////////////////////////////////////
 /*
  * Package Operations:
  * -------------------
@@ -32,6 +38,7 @@
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
  * SpecialPunctState.cs
+ * 
  * 
  * Maintenance History
  * ===================
@@ -152,10 +159,15 @@ namespace SemiExpressionNameSpace
                 //   if (this.FindFirst("/") != -1)
                 //      return true;
                 //  return false;
-                case "\n":
+                case ">": 
                     if (this.FindFirst("#") != -1)
                         return true;
                     return false;
+                case "\n":
+                    if (this.FindFirst("#") != -1)//|| this.FindFirst("/") != -1)
+                        return true;
+                    return false;
+
                 default: return false;
             }
         }

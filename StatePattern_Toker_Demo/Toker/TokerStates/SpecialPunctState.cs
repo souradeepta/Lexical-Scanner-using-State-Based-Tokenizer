@@ -1,8 +1,15 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
-// SpecialPunctState.cs - Defines the State for double punctuators detection//
-// ver 1.0                                                                 //
-// Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
-///////////////////////////////////////////////////////////////////////////
+// SpecialPunctState.cs - Defines the State for double punctuators detection //
+// ver 1.0                                                                   //
+// Language:    C#, Visual Studio 2017, .Net Framework 4.7                   // 
+// Platform:    HP Pavillion , Win 10                                        //
+// Application: Pr#2 , CSE681, Fall 2018                                     //
+// Authors:  -  Jim Fawcett,                                                 // 
+//                CSE681 - Software Modeling and Analysis, Fall 2018         // 
+//           -  Souradeepta Biswas,                                          // 
+//                CSE681 - Software Modeling and Analysis, Fall 2018         //
+//                sobiswas@syr.edu                                           //
+///////////////////////////////////////////////////////////////////////////////
 /*
  * Package Operations:
  * -------------------
