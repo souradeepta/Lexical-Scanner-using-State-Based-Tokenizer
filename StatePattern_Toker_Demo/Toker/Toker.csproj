@@ -42,19 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlphaState.cs" />
-    <Compile Include="CCommentState.cs" />
-    <Compile Include="CppCommentState.cs" />
-    <Compile Include="DoubleQuoteState.cs" />
-    <Compile Include="SingleQuoteState.cs" />
-    <Compile Include="PunctState.cs" />
-    <Compile Include="SpecialPunctState.cs" />
+    <Compile Include="TokerStates\AlphaState.cs" />
+    <Compile Include="TokerStates\CCommentState.cs" />
+    <Compile Include="TokerStates\CppCommentState.cs" />
+    <Compile Include="TokerStates\DoubleQuoteState.cs" />
+    <Compile Include="TokerStates\SingleQuoteState.cs" />
+    <Compile Include="TokerStates\PunctState.cs" />
+    <Compile Include="TokerStates\SpecialPunctState.cs" />
     <Compile Include="TokenContext.cs" />
     <Compile Include="TokenSourceFile.cs" />
     <Compile Include="TokenState.cs" />
     <Compile Include="Toker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhiteSpaceState.cs" />
+    <Compile Include="TokenInterfaces\TokenInterfaces.cs" />
+    <Compile Include="TokerStates\WhiteSpaceState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,6 +1,5 @@
-
-#include<iostream>
-//This a C Comment
+#s>
+//c
 using namespace Testing{
 
 {
@@ -8,13 +7,14 @@ using namespace Testing{
   temp.Append("{");
   temp.Append(String.Format("{0,-10}", type)).Append(" : ");
   temp.Append(String.Format("{0,-10}", name)).Append(" : ");
-  temp.Append(String.Format("{0,-5}", beginLine.ToString()));	
-  temp.Append(String.Format("{0,-5}", endLine.ToString()));    
+  temp.Append(String.Format("{0,-5}", beginLine.ToString()));	// line of scope start
+  temp.Append(String.Format("{0,-5}", endLine.ToString()));    // line of scope end
   temp.Append("}");
   return temp.ToString();
 }
 //This is a semi expression test
 int i;
+// a C comment
 /* And a CPP 
 Style
 Comment
@@ -32,10 +32,4 @@ for(int i=0; i<4; ++i)
     for(int k=0; k<2; ++k)
       p = i*j*k;
 
-for(;;)
-
-if(i == 0)
-{
-	a+=1;
-}
 }

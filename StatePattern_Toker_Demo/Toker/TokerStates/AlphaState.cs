@@ -1,6 +1,7 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// CCommentState.cs - Defines the State for c style comment detection       //
-// ver 1.0                                                                 //
+﻿////////////////////////////////////////////////////////////////////////////////
+// AlphaState.cs - Defines the Alphanumeric State token detection            //
+// ver 1.0                                                                  //
+// Jim Fawcett, CSE681 - Software Modeling and Analysis, Fall 2018         //
 // Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
 ///////////////////////////////////////////////////////////////////////////
 /*
@@ -14,9 +15,15 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
@@ -35,46 +42,37 @@ namespace TokerNameSpace
     using Token = StringBuilder;
 
     ///////////////////////////////////////////////////////////////////
-    // CCommentState class
-    // - extracts c comment style characters as a token
-    class CCommentState : TokenState
+    // AlphaState class
+    // - extracts contiguous letter and digit chars as a token
+
+    public class AlphaState : TokenState
     {
-        public CCommentState(TokenContext context)
+        public AlphaState(TokenContext context)
         {
             context_ = context;
         }
         //----< manage converting extracted ints to chars >--------------
 
-        public bool isCComment(int i)
+        bool isLetterOrDigit(int i)
         {
             int nextItem = context_.src.peek();
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            if (ch == '/')
-            {
-                char nextItem2 = (char)context_.src.peek(1);
-                if (nextItem2 == '/')
-                    return true;
-                else
-                    return false;
-            }
-            else
-                return false;
+            return Char.IsLetterOrDigit(ch);
         }
-        //----< keep extracting until get none-in-quote >-------------------
+        //----< keep extracting until get none-alpha >-------------------
 
         override public Token getTok()
         {
             Token tok = new Token();
-            tok.Append((char)context_.src.next());          
-            while ((char)context_.src.peek() != '\r')//|| (char)context_.src.peek() != '\n')
+            tok.Append((char)context_.src.next());          // first is alpha
+
+            while (isLetterOrDigit(context_.src.peek()))    // stop when non-alpha
             {
                 tok.Append((char)context_.src.next());
             }
-            tok.Append((char)context_.src.next());
             return tok;
         }
     }
 }
-

@@ -1,6 +1,7 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// TokenSourceFile.cs - Uses Token Source File                              //
-// ver 1.0                                                                 //
+﻿////////////////////////////////////////////////////////////////////////////////
+// TokenSourceFile.cs - Uses Token Source File                               //
+// ver 1.0                                                                  //
+// Jim Fawcett, CSE681 - Software Modeling and Analysis, Fall 2018         //
 // Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
 ///////////////////////////////////////////////////////////////////////////
 /*
@@ -14,9 +15,15 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
@@ -75,10 +82,7 @@ namespace TokerNameSpace
             fs_.Close();
         }
         //----< extract the next available integer >---------------------
-        /*
-         *  - checks to see if previously enqueued peeked ints are available
-         *  - if not, reads from stream
-         */
+        
         public int next()
         {
             int ch;
@@ -98,14 +102,7 @@ namespace TokerNameSpace
             return ch;
         }
         //----< peek n ints into source without extracting them >--------
-        /*
-         *  - This is an organizing prinicple that makes tokenizing easier
-         *  - We enqueue because file streams only allow peeking at the first int
-         *    and even that isn't always reliable if an error occurred.
-         *  - When we look for two punctuator tokens, like ==, !=, etc. we want
-         *    to detect their presence without removing them from the stream.
-         *    Doing that is a small part of your work on this project.
-         */
+       
         public int peek(int n = 0)
         {
             if (n < charQ_.Count)  // already peeked, so return

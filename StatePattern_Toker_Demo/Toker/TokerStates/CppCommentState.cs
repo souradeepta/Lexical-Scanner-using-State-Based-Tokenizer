@@ -1,5 +1,5 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
-// PunctState.cs - Defines the Punctuator State token detection             //
+// CppCommentState.cs - Defines the State for cpp style comment detection   //
 // ver 1.0                                                                 //
 // Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
 ///////////////////////////////////////////////////////////////////////////
@@ -14,9 +14,15 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
@@ -35,37 +41,49 @@ namespace TokerNameSpace
     using Token = StringBuilder;
 
     ///////////////////////////////////////////////////////////////////
-    // PunctState class
-    // - extracts contiguous punctuation chars as a token
-
-    public class PunctState : TokenState
+    // CppCommentState class
+    // - extracts c comment style characters as a token
+    class CppCommentState : TokenState
     {
-        public PunctState(TokenContext context)
+        public CppCommentState(TokenContext context)
         {
             context_ = context;
         }
         //----< manage converting extracted ints to chars >--------------
 
-        bool isPunctuation(int i)
+        public bool isCppComment(int i)
         {
             int nextItem = context_.src.peek();
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            return (!Char.IsWhiteSpace(ch) && !Char.IsLetterOrDigit(ch));
+            if (ch == '/')
+            {
+                char nextItem2 = (char)context_.src.peek(1);
+                if (nextItem2 == '*')
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
         }
-        //----< keep extracting until get none-punctuator >--------------
+        //----< keep extracting until get none-in-quote >-------------------
 
         override public Token getTok()
         {
             Token tok = new Token();
-            tok.Append((char)context_.src.next());       // first is punctuator
-
-            while (isPunctuation(context_.src.peek()))   // stop when non-punctuator
+            tok.Append((char)context_.src.next());
+            while (((char)context_.src.peek() != '/'))
             {
+                if ((char)context_.src.peek() == '\n')
+                    tok.Append("");
                 tok.Append((char)context_.src.next());
             }
+            tok.Append((char)context_.src.next());
+            
             return tok;
         }
     }
 }
+

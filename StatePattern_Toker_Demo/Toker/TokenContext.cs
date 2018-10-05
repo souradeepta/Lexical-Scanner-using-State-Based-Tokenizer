@@ -1,6 +1,7 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// TokenContext.cs - Uses Token Context                                     //
-// ver 1.0                                                                 //
+﻿////////////////////////////////////////////////////////////////////////////////
+// TokenContext.cs - Uses Token Context                                      //
+// ver 1.0                                                                  //
+// Jim Fawcett, CSE681 - Software Modeling and Analysis, Fall 2018         //
 // Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
 ///////////////////////////////////////////////////////////////////////////
 /*
@@ -14,9 +15,15 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
@@ -44,14 +51,11 @@ namespace TokerNameSpace
             ws_ = new WhiteSpaceState(this);
             ps_ = new PunctState(this);
             as_ = new AlphaState(this);
-            // more states here
             sqs_ = new SingleQuoteState(this);
             dqs_ = new DoubleQuoteState(this);
             ccs_ = new CCommentState(this);
             cppcs_ = new CppCommentState(this);
             sps_ = new SpecialPunctState(this);
-
-
 
             currentState_ = ws_;
         }
@@ -64,10 +68,8 @@ namespace TokerNameSpace
         internal CppCommentState cppcs_ { get; set; }
         internal SpecialPunctState sps_ { get; set; }
 
-        // more states here
-
         internal TokenState currentState_ { get; set; }
-        internal ITokenSource src { get; set; }  // can hold any derived class
+        internal ITokenSource src { get; set; }  
     }
     }
 

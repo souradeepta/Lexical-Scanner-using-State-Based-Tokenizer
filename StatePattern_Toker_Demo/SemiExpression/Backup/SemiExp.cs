@@ -12,26 +12,23 @@
  * of information to parse for code analysis.  SemiExpressions are token
  * sequences that end in "{" or "}" or ";
  * 
- * SemiExp works with a private Toker object attached to a specified file.
+ * SemiExp works with a private CToker object attached to a specified file.
  * It provides a get() function that extracts semiExpressions from the file
  * while filtering out comments and merging quotes into single tokens.
  * Required Files:
  * ---------------
  * SemiExp.cs
- * SemiInterfaces.cs
  * Toker.cs
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
- * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
- * CCommentState.cs
- * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
  * 
  * Maintenance History
  * ===================
@@ -90,7 +87,7 @@ namespace SemiExpressionNameSpace
 {
     ///////////////////////////////////////////////////////////////////////
     // class CSemiExp - filters token stream and collects semiExpressions
-    class SemiExp : ISemiSource
+    class SemiExp
     {
         Toker toker = null;
         List<string> semiExp = null;

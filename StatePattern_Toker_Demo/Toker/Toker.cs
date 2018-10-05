@@ -15,14 +15,21 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
  * ver 1.3 : 03 Oct 2018
- * - Seperated all classes for encapsulation
+ * - Seperated all classes for encapsulation added new states - CppCommentState, 
+ *   CCommentState, DoubleQuoteState, SingleQuoteState, SpecialPunctState
  * ver 1.2 : 03 Sep 2018
  * - added comments just above the definition of derived states, near line #209
  * ver 1.1 : 02 Sep 2018
@@ -51,38 +58,12 @@ using System.Threading.Tasks;
 namespace TokerNameSpace
 {
   using Token = StringBuilder;
+ 
+    ///////////////////////////////////////////////////////////////////
+    // Toker class
+    // - applications need to use only this class to collect tokens
 
-  ///////////////////////////////////////////////////////////////////
-  // ITokenSource interface
-  // - Declares operations expected of any source of tokens
-  // - Typically we would use either files or strings.  This demo
-  //   provides a source only for Files, e.g., TokenFileSource, below.
-
-  public interface ITokenSource
-  {
-    bool open(string path);
-    void close();
-    int next();
-    int peek(int n = 0);
-    bool end();
-    int lineCount { get; set; }
-  }
-
-  ///////////////////////////////////////////////////////////////////
-  // ITokenState interface
-  // - Declares operations expected of any token gathering state
-
-  public interface ITokenState
-  {
-    Token getTok();
-    bool isDone();
-  }
-
-  ///////////////////////////////////////////////////////////////////
-  // Toker class
-  // - applications need to use only this class to collect tokens
-
-  public class Toker
+    public class Toker
   {
     private TokenContext context_;       // holds single instance of all states and token source
 
@@ -171,15 +152,8 @@ namespace TokerNameSpace
       Console.Write("\n =========================");
 
       StringBuilder msg = new StringBuilder();
-    /*  msg.Append("\n  Some things this demo does not do for CSE681 Project #2:");
-      msg.Append("\n  - collect comments as tokens");
-      msg.Append("\n  - collect double quoted strings as tokens");
-      msg.Append("\n  - collect single quoted strings as tokens");
-      msg.Append("\n  - collect specified single characters as tokens");
-      msg.Append("\n  - collect specified character pairs as tokens");
-      msg.Append("\n  - integrate with a SemiExpression collector");
-      msg.Append("\n  - provide the required package structure");
-      */msg.Append("\n");
+
+      msg.Append("\n");
 
       Console.Write(msg);
       
@@ -191,5 +165,4 @@ namespace TokerNameSpace
     }
   }
 }
-  
 #endif

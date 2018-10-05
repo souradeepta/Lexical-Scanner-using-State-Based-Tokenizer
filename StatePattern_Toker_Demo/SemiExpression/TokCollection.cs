@@ -8,7 +8,7 @@ namespace SemiExpressionNameSpace
 {
     ///////////////////////////////////////////////////////////////////
     // ITokenCollection interface
-   
+
 
     public interface ITokenCollection
     {
@@ -20,13 +20,14 @@ namespace SemiExpressionNameSpace
     {
         bool CreateSemiObject(string SemiObj)
         {
-            SemiExp SemiObj = new SemiExp();
+            //      SemiExp SemiObj = new SemiExp();
             return true;
         }
-        static void Main(string[] args)
-        {
+        /*  static void Main(string[] args)
+          {
 
-        }
+          }
+      }*/
+
     }
-   
 }

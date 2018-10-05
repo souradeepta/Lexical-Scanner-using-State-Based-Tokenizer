@@ -1,5 +1,5 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
-// CppCommentState.cs - Defines the State for cpp style comment detection   //
+// SpecialPunctState.cs - Defines the State for double punctuators detection//
 // ver 1.0                                                                 //
 // Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
 ///////////////////////////////////////////////////////////////////////////
@@ -14,9 +14,15 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
@@ -35,47 +41,54 @@ namespace TokerNameSpace
     using Token = StringBuilder;
 
     ///////////////////////////////////////////////////////////////////
-    // CppCommentState class
-    // - extracts c comment style characters as a token
-    class CppCommentState : TokenState
+    // SpecialPunctState class
+    // - extracts special double characters as a token
+    class SpecialPunctState : TokenState
     {
-        public CppCommentState(TokenContext context)
+        public SpecialPunctState(TokenContext context)
         {
             context_ = context;
         }
-        //----< manage converting extracted ints to chars >--------------
-
-        public bool isCppComment(int i)
+        
+        public bool isSpecialPunct(int i)
         {
             int nextItem = context_.src.peek();
             if (nextItem < 0)
                 return false;
-            char ch = (char)nextItem;
-            if (ch == '/')
+            char first = (char)nextItem;
+            StringBuilder opr = new StringBuilder();
+                opr.Append(first.ToString());
+            opr.Append(((char)context_.src.peek(1)).ToString());
+
+            string[] opers = new string[]
             {
-                char nextItem2 = (char)context_.src.peek(1);
-                if (nextItem2 == '*')
-                    return true;
-                else
-                    return false;
-            }
+                 "!=", "==", ">=", "<=", "&&", "||", "--", "++", "::",
+                  "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>"
+            };
+
+            if (opers.Contains(opr.ToString()))
+                return true;
             else
                 return false;
+          /*  char second = (char)context_.src.peek(1);
+            StringBuilder testDouble = new StringBuilder();
+            testDouble.Append(first).Append(second);
+            foreach (string oper in opers)
+            if (oper.Equals(testDouble.ToString()))
+                  return true;
+            return false;*/
         }
-        //----< keep extracting until get none-in-quote >-------------------
 
         override public Token getTok()
         {
             Token tok = new Token();
             tok.Append((char)context_.src.next());
-            while (((char)context_.src.peek() != '/'))
-            {
-                if ((char)context_.src.peek() == '\n')
-                    tok.Append("");
-                tok.Append((char)context_.src.next());
-            }
+          while (isSpecialPunct(context_.src.peek()))
+          {
+               tok.Append((char)context_.src.next());
+          }
             tok.Append((char)context_.src.next());
-            
+
             return tok;
         }
     }

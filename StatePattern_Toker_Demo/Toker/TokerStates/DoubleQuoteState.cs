@@ -1,5 +1,5 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
-// WhiteSpaceState.cs - Defines the Whitespace State token detection        //
+// DoubleQuoteState.cs - Defines the State for double style quote detection //
 // ver 1.0                                                                 //
 // Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
 ///////////////////////////////////////////////////////////////////////////
@@ -14,16 +14,21 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * SpecialPunctState.cs
  * 
  * Maintenance History
  * -------------------
  * ver 1.0 : 3 0ct 2018
  * - first release
  */
-
 
 using System;
 using System.Collections.Generic;
@@ -36,37 +41,57 @@ namespace TokerNameSpace
     using Token = StringBuilder;
 
     ///////////////////////////////////////////////////////////////////
-    // WhiteSpaceState class
-    // - extracts contiguous whitespace chars as a token
-    // - will be thrown away by tokenizer
-
-    public class WhiteSpaceState : TokenState
+    // DoubleQuoteState class
+    // - extracts double quoted characters as a token
+    class DoubleQuoteState : TokenState
     {
-        public WhiteSpaceState(TokenContext context)
+        static bool isQuote = false;
+        static int Quote_no = 0;
+        public DoubleQuoteState(TokenContext context)
         {
             context_ = context;
         }
         //----< manage converting extracted ints to chars >--------------
 
-        bool isWhiteSpace(int i)
+        public bool isDoubleQuote(int i)
         {
             int nextItem = context_.src.peek();
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            return Char.IsWhiteSpace(ch);
+            if (ch == '\"' && !isQuote)
+            {
+                Quote_no++; 
+                isQuote = true;
+                return true;
+            }
+            else if (isQuote)
+            {
+                if(ch == '\"')
+                {
+                    Quote_no--;
+                    isQuote = false;
+                    return true;
+                }
+                else
+                return true;
+            }
+            else
+                return false;
         }
-        //----< keep extracting until get none-whitespace >--------------
+        //----< keep extracting until get none-in-quote >-------------------
 
         override public Token getTok()
         {
             Token tok = new Token();
-            tok.Append((char)context_.src.next());     // first is WhiteSpace
-
-            while (isWhiteSpace(context_.src.peek()))  // stop when non-WhiteSpace
+            tok.Append((char)context_.src.next());          // first is alpha
+            //char terminator_quote = (char)context_.src.peek();
+            //while (terminator_quote != '\'')    // stop when non-alpha
+            while (isDoubleQuote((char)context_.src.peek()))
             {
                 tok.Append((char)context_.src.next());
             }
+            //tok.Append((char)context_.src.next());
             return tok;
         }
     }
