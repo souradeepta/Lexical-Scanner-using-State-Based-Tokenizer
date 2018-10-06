@@ -57,8 +57,8 @@ namespace TokerNameSpace
     public class TokenSourceFile : ITokenSource
     {
         public int lineCount { get; set; } = 1;
-        private System.IO.StreamReader fs_;           // physical source of text
-        private List<int> charQ_ = new List<int>();   // enqueing ints but using as chars
+        private System.IO.StreamReader fs_;           
+        private List<int> charQ_ = new List<int>();   
         private TokenContext context_;
 
         public TokenSourceFile(TokenContext context)
@@ -92,18 +92,18 @@ namespace TokerNameSpace
         public int next()
         {
             int ch;
-            if (charQ_.Count == 0)  // no saved peeked ints
+            if (charQ_.Count == 0)  
             {
                 if (end())
                     return -1;
                 ch = fs_.Read();
             }
-            else                    // has saved peeked ints, so use the first
+            else                    
             {
                 ch = charQ_[0];
                 charQ_.Remove(ch);
             }
-            if ((char)ch == '\n')   // track the number of newlines seen so far
+            if ((char)ch == '\n')  
                 ++lineCount;
             return ch;
         }
@@ -111,19 +111,19 @@ namespace TokerNameSpace
        
         public int peek(int n = 0)
         {
-            if (n < charQ_.Count)  // already peeked, so return
+            if (n < charQ_.Count)  
             {
                 return charQ_[n];
             }
-            else                  // nth int not yet peeked
+            else                  
             {
                 for (int i = charQ_.Count; i <= n; ++i)
                 {
                     if (end())
                         return -1;
-                    charQ_.Add(fs_.Read());  // read and enqueue
+                    charQ_.Add(fs_.Read());  
                 }
-                return charQ_[n];   // now return the last peeked
+                return charQ_[n];   
             }
         }
         //----< reached the end of the file stream? >--------------------

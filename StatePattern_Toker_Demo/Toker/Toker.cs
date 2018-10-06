@@ -31,6 +31,18 @@
  * DoubleQuoteState.cs
  * DoublePunctCharState.cs
  * 
+ * * Public Interface
+ * ================
+ * Toker toker = new Toker();      // constructs Toker object
+ * public bool open(string path);  // attempt to open source of tokens 
+ * public void close()             // close source of tokens
+ * public Token getTok()           // extract a token from source
+ * public bool isDone()            // checks if toker reached end of source
+ * public int next()               // extracts the next available integer
+ * public int peek(int n = 0)      // peek n ints into source without extracting them
+ * public bool end()               // checks end of file stream
+ * public bool isDone()            // checks if tokenizer has reached the end of its source
+ *
  * Maintenance History
  * -------------------
  * ver 1.3 : 03 Oct 2018
