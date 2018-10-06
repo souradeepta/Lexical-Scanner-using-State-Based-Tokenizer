@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SemiExpressionNameSpace;
 
 namespace TestSuite
 {
@@ -69,6 +70,10 @@ namespace TestSuite
             DemoToker t1 = new DemoToker();
             t1.testToker("../../TestTokenizer.txt");
             Console.WriteLine("\n4th Requirement-----> PASS\n");
+            Console.WriteLine("\n5th Requirement-----> \n");
+            DemoSemi s1 = new DemoSemi();
+            s1.testSemi("../../testSemi.txt");
+
             Console.WriteLine("\n5th Requirement-----> PASS\n");
 
             

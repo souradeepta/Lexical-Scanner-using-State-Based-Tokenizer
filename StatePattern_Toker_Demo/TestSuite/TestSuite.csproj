@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemoSemi.cs" />
     <Compile Include="DemoToker.cs" />
     <Compile Include="TestRun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

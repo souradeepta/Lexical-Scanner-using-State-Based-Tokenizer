@@ -117,7 +117,7 @@ namespace SemiExpressionNameSpace
 {
     ///////////////////////////////////////////////////////////////////////
     // class CSemiExp - filters token stream and collects semiExpressions
-    class SemiExp : ISemiSource
+    public class SemiExp : ISemiSource
     {
         Toker toker = null;
         List<string> semiExp = null;
@@ -440,7 +440,7 @@ namespace SemiExpressionNameSpace
             Console.Write("\n  processing file: {0}\n", testFile);
             while (test.getSemi())
                 test.display();
-            /*
+
             test.initialize();
             test.insert(0, "this");
             test.insert(1, "is");
@@ -480,7 +480,7 @@ namespace SemiExpressionNameSpace
 
             Console.Write("\n  Analyzing file {0}", args[0]);
             Console.Write("\n ----------------------------------\n");
-            */
+
             while (semi.getSemi())
                 semi.display();
             semi.close();
