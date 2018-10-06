@@ -165,7 +165,9 @@ namespace TokerNameSpace
 
       Console.Write(msg);
       
-    testToker("../../TestTokenizer.txt");
+        testToker("../../TestSemi.txt");
+   
+ //   testToker("../../TestTokenizer.txt");
      //testToker("../../Test.txt");
           //  toker.SinglePunctCharState = "+";
      //testToker("../../Test.txt");

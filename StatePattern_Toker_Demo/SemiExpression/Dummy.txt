@@ -1,15 +1,11 @@
-//This a C Comment
-
-#include<iostream2>
-
-using namespace Testing{
-
-{
-  StringBuilder temp = new StringBuilder();
-  temp.Append("{");
-  temp.Append(String.Format("{0,-10}", type)).Append(" : ");
-  temp.Append(String.Format("{0,-10}", name)).Append(" : ");
-  temp.Append(String.Format("{0,-5}", beginLine.ToString()));	
-  temp.Append(String.Format("{0,-5}", endLine.ToString()));    
-  temp.Append("}");
-  return temp.ToString();
+//c1
+int p; //c2
+foir(i;i;i)
+       p = i*j*k;
+for(;;)
+//c3
+if(i == 0)
+{ //c4
+/*c*/
+	a+=1;
+}

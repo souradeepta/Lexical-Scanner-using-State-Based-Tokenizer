@@ -187,6 +187,9 @@ namespace SemiExpressionNameSpace
                     if (this.FindFirst("#") != -1)//|| this.FindFirst("/") != -1)
                         return true;
                     return false;
+                case "\r\n":
+                         return true;
+                   
 
                 default: return false;
             }
@@ -196,15 +199,17 @@ namespace SemiExpressionNameSpace
         string get()
         {
             while (!toker.isDone())
-            {
+            // {
+           // while (toker.getTok()!= null)
+            {           
                 prevTok = currTok;
                 currTok = toker.getTok().ToString();
                 if (verbose)
                     Console.Write("{0} ", currTok);
                 return currTok;
-            }
-            // toker.close();
-            return null;
+           }
+            toker.close();
+          return null;
         }
         //----< is this character a punctuator> >----------------------------
 
@@ -266,7 +271,7 @@ namespace SemiExpressionNameSpace
 
             // if for then append next two semiExps, e.g., for(int i=0; i<se.count; ++i) {
 
-            trim();
+           trim();//// ------------------TRIM REMOVE
 
             if (semiExp.Contains("for"))
             {
@@ -433,14 +438,15 @@ namespace SemiExpressionNameSpace
             test.returnNewLines = true;
             test.displayNewLines = true;
 
-            string testFile = "../../testSemi.txt";
+           string testFile = "../../testSemi.txt";
           //  string testFile = "../../testSemi.txt";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
             Console.Write("\n  processing file: {0}\n", testFile);
             while (test.getSemi())
                 test.display();
-
+            Console.ReadLine();
+            /*
             test.initialize();
             test.insert(0, "this");
             test.insert(1, "is");
@@ -483,7 +489,7 @@ namespace SemiExpressionNameSpace
 
             while (semi.getSemi())
                 semi.display();
-            semi.close();
+            semi.close();*/
         }
 #endif
     }
@@ -493,7 +499,7 @@ namespace SemiExpressionNameSpace
     //----< test stub >--------------------------------------------------
     class DemoSemiExp
   {
-    static bool testSemiExp(string path)
+    public bool testSemiExp(string path)
     {
       SemiExp test = new SemiExp();
       string fqf = System.IO.Path.GetFullPath(path);
