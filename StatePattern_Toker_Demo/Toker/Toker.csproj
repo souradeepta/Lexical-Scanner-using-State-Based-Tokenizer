@@ -42,13 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TokerStates\SinglePunctCharState.cs" />
     <Compile Include="TokerStates\AlphaState.cs" />
     <Compile Include="TokerStates\CCommentState.cs" />
     <Compile Include="TokerStates\CppCommentState.cs" />
     <Compile Include="TokerStates\DoubleQuoteState.cs" />
     <Compile Include="TokerStates\SingleQuoteState.cs" />
     <Compile Include="TokerStates\PunctState.cs" />
-    <Compile Include="TokerStates\SpecialPunctState.cs" />
+    <Compile Include="TokerStates\DoublePunctCharState.cs" />
     <Compile Include="TokenContext.cs" />
     <Compile Include="TokenSourceFile.cs" />
     <Compile Include="TokenState.cs" />

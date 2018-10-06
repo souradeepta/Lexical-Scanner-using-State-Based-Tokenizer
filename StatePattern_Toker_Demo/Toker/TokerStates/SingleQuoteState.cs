@@ -29,7 +29,7 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------

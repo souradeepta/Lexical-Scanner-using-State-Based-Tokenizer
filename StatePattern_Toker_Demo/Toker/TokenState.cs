@@ -29,7 +29,7 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -53,6 +53,7 @@ namespace TokerNameSpace
 
     public abstract class TokenState : ITokenState
     {
+        
 
         internal TokenContext context_ { get; set; }  // derived classes store context ref here
 
@@ -79,14 +80,6 @@ namespace TokerNameSpace
                 return context.ws_;
             if (Char.IsLetterOrDigit(ch))
                 return context.as_;
-
-
-            // Test for strings and comments here since we don't
-            // want them classified as punctuators.
-
-            // toker's definition of punctuation is anything that
-            // is not whitespace and is not a letter or digit
-            // Char.IsPunctuation is not inclusive enough
             if(context.sqs_.isSingleQuote(ch))
                 return context.sqs_;
             if (context.dqs_.isDoubleQuote(ch))
@@ -95,8 +88,13 @@ namespace TokerNameSpace
                 return context.ccs_;
             if(context.cppcs_.isCppComment(ch))
                 return context.cppcs_;
-           if (context.sps_.isSpecialPunct(ch))
-              return context.sps_;
+            if (context.dps_.isDoublePunct(ch))
+                return context.dps_;
+            if (context.sps_.isSinglePunct(ch))
+                return context.sps_;
+            
+           
+
             return context.ps_;
         }
         //----< has tokenizer reached the end of its source? >-----------

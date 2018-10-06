@@ -37,9 +37,29 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
- * 
- * 
+ * DoublePunctCharState.cs
+ *  
+ * Public Interface
+ * ================
+ * SemiExp semi = new SemiEx;();      // constructs SemiExp object
+ * if(semi.open(fileName)) ...        // attaches semi to specified file
+ * semi.close();                      // closes file stream
+ * if(semi.Equals(se)) ...            // do these semiExps have same tokens?
+ * if(getSemi()) ...                  // extracts and stores next semiExp
+ * int len = semi.count;              // length property
+ * semi.verbose = true;               // verbose property - shows tokens
+ * string tok = semi[2];              // access a semi token
+ * string tok = semi[1];              // extract token
+ * semi.flush();                      // removes all tokens
+ * semi.initialize();                 // adds ";" to empty semi-expression
+ * semi.insert(2,tok);                // inserts token as third element
+ * semi.Add(tok);                     // appends token
+ * semi.Add(tokArray);                // appends array of tokens
+ * semi.display();                    // sends tokens to Console
+ * string show = semi.displayStr();   // returns tokens as single string
+ * semi.returnNewLines = false;       // property defines newline handling
+ *                                    //   default is true
+ *                                    
  * Maintenance History
  * ===================
  * ver 2.9 : 03 Oct 18
@@ -413,14 +433,14 @@ namespace SemiExpressionNameSpace
             test.returnNewLines = true;
             test.displayNewLines = true;
 
-            //string testFile = "../../testSemi.txt";
             string testFile = "../../testSemi.txt";
+          //  string testFile = "../../testSemi.txt";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
             Console.Write("\n  processing file: {0}\n", testFile);
             while (test.getSemi())
                 test.display();
-
+            /*
             test.initialize();
             test.insert(0, "this");
             test.insert(1, "is");
@@ -460,7 +480,7 @@ namespace SemiExpressionNameSpace
 
             Console.Write("\n  Analyzing file {0}", args[0]);
             Console.Write("\n ----------------------------------\n");
-
+            */
             while (semi.getSemi())
                 semi.display();
             semi.close();

@@ -34,18 +34,5 @@ namespace SemiExpressionNameSpace
         bool CreateSemiObject(string name);
 
     }
-    class TokCollection
-    {
-        bool CreateSemiObject(string SemiObj)
-        {
-            //      SemiExp SemiObj = new SemiExp();
-            return true;
-        }
-        /*  static void Main(string[] args)
-          {
-
-          }
-      }*/
-
-    }
+    
 }

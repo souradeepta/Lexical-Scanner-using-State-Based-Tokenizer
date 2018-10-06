@@ -29,7 +29,7 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -52,6 +52,9 @@ namespace TokerNameSpace
     // - internal qualification limits access to this assembly
     public class TokenContext
     {
+        public List<string> SpecialSingleCharsList { get; set; }
+        public List<string> SpecialDoubleCharsList { get; set; }
+
         internal TokenContext()
         {
             ws_ = new WhiteSpaceState(this);
@@ -61,9 +64,15 @@ namespace TokerNameSpace
             dqs_ = new DoubleQuoteState(this);
             ccs_ = new CCommentState(this);
             cppcs_ = new CppCommentState(this);
-            sps_ = new SpecialPunctState(this);
+            dps_ = new DoublePunctCharState(this);
+            sps_ = new SinglePunctCharState(this);
 
             currentState_ = ws_;
+
+            SpecialSingleCharsList = new List<string> { "<", ">", "[", "]", "(", ")", "{", "}", ":", "=", "+", "-", "*" };
+                                                       
+            SpecialDoubleCharsList = new List<string> {"!=", "==", ">=", "<=", "&&", "||", "--", "++", "::","+=", "-=", "*=",
+                                                             "/=", "%=","&=", "^=", "|=", "<<", ">>" };
         }
         internal WhiteSpaceState ws_ { get; set; }
         internal PunctState ps_ { get; set; }
@@ -72,7 +81,8 @@ namespace TokerNameSpace
         internal DoubleQuoteState dqs_ { get; set; }
         internal CCommentState ccs_ { get; set; }
         internal CppCommentState cppcs_ { get; set; }
-        internal SpecialPunctState sps_ { get; set; }
+        internal SinglePunctCharState sps_ { get; set; }
+        internal DoublePunctCharState dps_ { get; set; }
 
         internal TokenState currentState_ { get; set; }
         internal ITokenSource src { get; set; }  

@@ -14,4 +14,3 @@ Test */
 9. <>=+*-(){}[]
 10. Special two character tokens: <<, >>, ::, ++, --, ==, +=, -=, *=, /=, &&, ||
 11. Special one character tokens: <, >, [, ], (, ), {, }, :, =, +, -, *
-

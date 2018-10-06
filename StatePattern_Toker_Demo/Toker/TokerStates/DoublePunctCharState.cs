@@ -1,5 +1,5 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
-// SpecialPunctState.cs - Defines the State for double punctuators detection //
+// DoublePunctCharState.cs - Defines the State for double punctuators detection //
 // ver 1.0                                                                   //
 // Language:    C#, Visual Studio 2017, .Net Framework 4.7                   // 
 // Platform:    HP Pavillion , Win 10                                        //
@@ -29,7 +29,7 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -48,16 +48,16 @@ namespace TokerNameSpace
     using Token = StringBuilder;
 
     ///////////////////////////////////////////////////////////////////
-    // SpecialPunctState class
+    // DoublePunctCharState class
     // - extracts special double characters as a token
-    class SpecialPunctState : TokenState
+    class DoublePunctCharState : TokenState
     {
-        public SpecialPunctState(TokenContext context)
+        public DoublePunctCharState(TokenContext context)
         {
             context_ = context;
         }
         
-        public bool isSpecialPunct(int i)
+        public bool isDoublePunct(int i)
         {
             int nextItem = context_.src.peek();
             if (nextItem < 0)
@@ -66,31 +66,18 @@ namespace TokerNameSpace
             StringBuilder opr = new StringBuilder();
                 opr.Append(first.ToString());
             opr.Append(((char)context_.src.peek(1)).ToString());
-
-            string[] opers = new string[]
-            {
-                 "!=", "==", ">=", "<=", "&&", "||", "--", "++", "::",
-                  "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>"
-            };
-
-            if (opers.Contains(opr.ToString()))
+            
+            if (context_.SpecialDoubleCharsList.Contains(opr.ToString()))
                 return true;
-            else
+            else 
                 return false;
-          /*  char second = (char)context_.src.peek(1);
-            StringBuilder testDouble = new StringBuilder();
-            testDouble.Append(first).Append(second);
-            foreach (string oper in opers)
-            if (oper.Equals(testDouble.ToString()))
-                  return true;
-            return false;*/
         }
 
         override public Token getTok()
         {
             Token tok = new Token();
             tok.Append((char)context_.src.next());
-          while (isSpecialPunct(context_.src.peek()))
+          while (isDoublePunct(context_.src.peek()))
           {
                tok.Append((char)context_.src.next());
           }

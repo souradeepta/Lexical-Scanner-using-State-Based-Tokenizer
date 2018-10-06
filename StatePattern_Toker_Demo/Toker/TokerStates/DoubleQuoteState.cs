@@ -29,7 +29,7 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -52,8 +52,8 @@ namespace TokerNameSpace
     // - extracts double quoted characters as a token
     class DoubleQuoteState : TokenState
     {
-        static bool isQuote = false;
-        static int Quote_no = 0;
+        //static bool isQuote = false;
+        //static int Quote_no = 0;
         public DoubleQuoteState(TokenContext context)
         {
             context_ = context;
@@ -66,23 +66,25 @@ namespace TokerNameSpace
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            if (ch == '\"' && !isQuote)
-            {
-                Quote_no++; 
-                isQuote = true;
+            /* if (ch == '\"' && !isQuote)
+             {
+                 Quote_no++; 
+                 isQuote = true;
+                 return true;
+             }
+             else if (isQuote)
+             {
+                 if(ch == '\"')
+                 {
+                     Quote_no--;
+                     isQuote = false;
+                     return true;
+                 }
+                 else
+                 return true;
+             }*/
+            if (ch == '\"')
                 return true;
-            }
-            else if (isQuote)
-            {
-                if(ch == '\"')
-                {
-                    Quote_no--;
-                    isQuote = false;
-                    return true;
-                }
-                else
-                return true;
-            }
             else
                 return false;
         }
@@ -94,11 +96,11 @@ namespace TokerNameSpace
             tok.Append((char)context_.src.next());          // first is alpha
             //char terminator_quote = (char)context_.src.peek();
             //while (terminator_quote != '\'')    // stop when non-alpha
-            while (isDoubleQuote((char)context_.src.peek()))
+            while (!isDoubleQuote((char)context_.src.peek()))
             {
                 tok.Append((char)context_.src.next());
             }
-            //tok.Append((char)context_.src.next());
+            tok.Append((char)context_.src.next());
             return tok;
         }
     }

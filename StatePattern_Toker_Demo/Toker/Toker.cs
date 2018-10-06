@@ -29,13 +29,13 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
  * ver 1.3 : 03 Oct 2018
  * - Seperated all classes for encapsulation added new states - CppCommentState, 
- *   CCommentState, DoubleQuoteState, SingleQuoteState, SpecialPunctState
+ *   CCommentState, DoubleQuoteState, SingleQuoteState, DoublePunctCharState
  * ver 1.2 : 03 Sep 2018
  * - added comments just above the definition of derived states, near line #209
  * ver 1.1 : 02 Sep 2018
@@ -71,13 +71,15 @@ namespace TokerNameSpace
 
     public class Toker
   {
-    private TokenContext context_;       // holds single instance of all states and token source
+    private TokenContext context_;
+        
+            
 
     //----< initialize state machine >-------------------------------
 
     public Toker()
     {
-      context_ = new TokenContext();      // context is the glue that holds all of the state machine parts 
+      context_ = new TokenContext();
     }
     //----< attempt to open source of tokens >-----------------------
     /*
@@ -163,9 +165,10 @@ namespace TokerNameSpace
 
       Console.Write(msg);
       
-     testToker("../../TestTokenizer.txt");
-    // testToker("../../Dummy.txt");
-
+    testToker("../../TestTokenizer.txt");
+     //testToker("../../Test.txt");
+          //  toker.SinglePunctCharState = "+";
+     //testToker("../../Test.txt");
       Console.Write("\n\n");
             Console.ReadLine(); 
     }

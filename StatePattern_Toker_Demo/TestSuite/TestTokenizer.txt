@@ -1,0 +1,15 @@
+Test.txt
+
+//C style comment test
+/* CPP
+Style
+Comment
+Test */
+'Single Quote Test'
+"Double Quote Test"
+abc.=*123 4 56 789
+<>=+*-(){}[]
+Special two character tokens: <<, >>, ==, *=, /=, &&, ||
+Special one character tokens: <, >, ), {, }, :
+
+

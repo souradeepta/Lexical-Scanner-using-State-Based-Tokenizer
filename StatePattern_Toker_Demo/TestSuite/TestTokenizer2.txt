@@ -1,0 +1,18 @@
+Test.txt entry
+++++++++++++++++
+
+1. //C style comment test
+2. /Not C style comment
+3. /* CPP
+Style
+Comment
+Test */
+4. #include<iostream>
+5. 'Single Quote Test'
+6. "Double Quote Test"
+7. Underscore_File_Test
+8. abc.=*123 4 56 789
+9. <>=+*-(){}[]
+10. Special two character tokens: <<, >>, ::, ++, --, ==, +=, -=, *=, /=, &&, ||
+11. Special one character tokens: <, >, [, ], (, ), {, }, :, =, +, -, *
+

@@ -29,7 +29,7 @@
  * CppCommentState.cs
  * SingleQuoteState.cs
  * DoubleQuoteState.cs
- * SpecialPunctState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -65,16 +65,16 @@ namespace TokerNameSpace
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            return (!Char.IsWhiteSpace(ch) && !Char.IsLetterOrDigit(ch));
+            return (!Char.IsWhiteSpace(ch) && !Char.IsLetterOrDigit(ch) && !context_.dqs_.isDoubleQuote(ch) && !context_.sqs_.isSingleQuote(ch) && !context_.ccs_.isCComment(ch) && !context_.cppcs_.isCppComment(ch) && !context_.dps_.isDoublePunct(ch) && !context_.sps_.isSinglePunct(ch) );
         }
         //----< keep extracting until get none-punctuator >--------------
 
         override public Token getTok()
         {
             Token tok = new Token();
-            tok.Append((char)context_.src.next());       // first is punctuator
+            tok.Append((char)context_.src.next());       
 
-            while (isPunctuation(context_.src.peek()))   // stop when non-punctuator
+            while (isPunctuation(context_.src.peek()))  
             {
                 tok.Append((char)context_.src.next());
             }
