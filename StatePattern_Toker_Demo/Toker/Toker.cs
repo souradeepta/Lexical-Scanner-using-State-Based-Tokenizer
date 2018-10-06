@@ -31,7 +31,7 @@
  * DoubleQuoteState.cs
  * DoublePunctCharState.cs
  * 
- * * Public Interface
+ * Public Interface
  * ================
  * Toker toker = new Toker();      // constructs Toker object
  * public bool open(string path);  // attempt to open source of tokens 
@@ -45,7 +45,7 @@
  *
  * Maintenance History
  * -------------------
- * ver 1.3 : 03 Oct 2018
+ * ver 1.3 : 06 Oct 2018
  * - Seperated all classes for encapsulation added new states - CppCommentState, 
  *   CCommentState, DoubleQuoteState, SingleQuoteState, DoublePunctCharState
  * ver 1.2 : 03 Sep 2018

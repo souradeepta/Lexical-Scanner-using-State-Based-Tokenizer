@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// Semi.cs - Builds semiExpressions                                       //
+// Semi.cs   - filters token stream and collects semiExpressions          //
 // ver 2.9                                                                //
 // Language:    C#, Visual Studio 2017, .Net Framework 4.7                // 
 // Platform:    HP Pavillion , Win 10                                     //
@@ -102,7 +102,7 @@
  * - added processing for all command line args
  * ver 1.0 : 31 Aug 03
  * - first release
- * 
+ *
  */
 
 using System;
@@ -115,20 +115,14 @@ using TokerNameSpace;
 namespace SemiExpressionNameSpace
 
 {
-    ///////////////////////////////////////////////////////////////////////
-    // class CSemiExp - filters token stream and collects semiExpressions
-    public class SemiExp : ISemiSource
+      public class SemiExp : ISemiSource
     {
         Toker toker = null;
         List<string> semiExp = null;
         string currTok = "";
         string prevTok = "";
         //----< line count property >----------------------------------------
-        /*
-        public int lineCount
-        {
-            get { return toker.lineCount; }
-        }*/
+    
         public SemiExp()
         {
             toker = new Toker();
@@ -175,16 +169,12 @@ namespace SemiExpressionNameSpace
                 case ";": return true;
                 case "{": return true;
                 case "}": return true;
-                //ase "\r":
-                //   if (this.FindFirst("/") != -1)
-                //      return true;
-                //  return false;
                 case ">": 
                     if (this.FindFirst("#") != -1)
                         return true;
                     return false;
                 case "\n":
-                    if (this.FindFirst("#") != -1)//|| this.FindFirst("/") != -1)
+                    if (this.FindFirst("#") != -1)
                         return true;
                     return false;
                 case "\r\n":
@@ -199,15 +189,13 @@ namespace SemiExpressionNameSpace
         string get()
         {
             while (!toker.isDone())
-            // {
-           // while (toker.getTok()!= null)
             {           
                 prevTok = currTok;
                 currTok = toker.getTok().ToString();
                 if (verbose)
                     Console.Write("{0} ", currTok);
                 return currTok;
-           }
+            }
             toker.close();
           return null;
         }
@@ -217,26 +205,7 @@ namespace SemiExpressionNameSpace
         {
             return (Char.IsPunctuation(ch) || Char.IsSymbol(ch));
         }
-        //
-        //----< are these characters an operator? >--------------------------
-
-
-        bool IsOperatorPair(char first, char second)
-        {
-            string[] opers = new string[]
-            {
-            "/*", "*/", "//", "!=", "==", ">=", "<=", "&&", "||", "--", "++",
-             "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>",
-             "\\n", "\\t", "\\r", "\\f"
-            };
-
-            StringBuilder test = new StringBuilder();
-            test.Append(first).Append(second);
-            foreach (string oper in opers)
-                if (oper.Equals(test.ToString()))
-                    return true;
-            return false;
-        }
+                       
         //----< collect semiExpression from filtered token stream >----------
 
         public bool isWhiteSpace(string tok)
@@ -259,24 +228,22 @@ namespace SemiExpressionNameSpace
 
         public bool getSemi()
         {
-            semiExp.RemoveRange(0, semiExp.Count);  // empty container
+            semiExp.RemoveRange(0, semiExp.Count);  
             do
             {
                 get();
                 if (currTok == "")
-                    return false;  // end of file
-                                   //if (returnNewLines || currTok != "\n")
+                    return false;  
+                                  
                 semiExp.Add(currTok);
             } while (!isTerminator(currTok) || count == 0);
 
-            // if for then append next two semiExps, e.g., for(int i=0; i<se.count; ++i) {
-
-           trim();//// ------------------TRIM REMOVE
+            trim();//// ------------------TRIM REMOVE
 
             if (semiExp.Contains("for"))
             {
                 SemiExp se = clone();
-                getSemi();                  // note recursive call
+                getSemi();                  
                 se.Add(semiExp.ToArray());
                 getSemi();
                 se.Add(semiExp.ToArray());
@@ -339,16 +306,7 @@ namespace SemiExpressionNameSpace
         {
             semiExp.RemoveRange(0, semiExp.Count);
         }
-        //----< is this token a comment? >-----------------------------------
-
-        /* public bool isComment(string tok)
-         {
-             if (tok.Length > 1)
-                 if (tok[0] == '/')
-                     if (tok[1] == '/' || tok[1] == '*')
-                         return true;
-             return false;
-         }*/
+               
         //----< display semiExpression on Console >--------------------------
 
         public void display()
@@ -423,7 +381,7 @@ namespace SemiExpressionNameSpace
             }
             return false;
         }
-        //
+        
 #if (TEST_SEMI)
 
         //----< test stub >--------------------------------------------------
