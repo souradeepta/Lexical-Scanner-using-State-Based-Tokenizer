@@ -318,12 +318,16 @@ namespace SemiExpressionNameSpace
 
         public string displayStr()
         {
+          //  semiExp.ForEach(Console.WriteLine);
+          // Console.WriteLine("\n\n");
             StringBuilder disp = new StringBuilder("");
             foreach (string tok in semiExp)
             {
+           //     Console.WriteLine("\n-", tok.ToString());
                 disp.Append(tok);
-                if (tok.IndexOf('\n') != tok.Length - 1)
+             //   if (tok.IndexOf('\n') != tok.Length - 1)
                     disp.Append(" ");
+           //     Console.WriteLine("\n+",disp.ToString());
             }
             return disp.ToString();
         }
@@ -396,8 +400,8 @@ namespace SemiExpressionNameSpace
             test.returnNewLines = true;
             test.displayNewLines = true;
 
+          // string testFile = "../../Dummy.txt";
            string testFile = "../../testSemi.txt";
-          //  string testFile = "../../testSemi.txt";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
             Console.Write("\n  processing file: {0}\n", testFile);

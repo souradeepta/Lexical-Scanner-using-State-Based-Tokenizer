@@ -63,7 +63,6 @@ namespace TestSuite
             Console.WriteLine("\n4th Requirement-----> \n");
             Console.WriteLine("Below are the tokens extracted from the file \"TestTokenizer\":");
 
-            // Get the app package
             string path2 = Path.GetTempFileName();
             FileInfo fi2 = new FileInfo("../../TestTokenizer.txt");
             Console.WriteLine(fi2.ToString());

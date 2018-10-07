@@ -33,9 +33,11 @@ namespace TokenCollectionNameSpace
 
     public interface ITokenCollection
     {
-
         bool CreateSemiObject(string name);
         
     }
-   
+
+    
+
+
 }

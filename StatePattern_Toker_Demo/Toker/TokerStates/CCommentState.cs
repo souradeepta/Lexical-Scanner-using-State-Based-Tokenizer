@@ -85,7 +85,7 @@ namespace TokerNameSpace
             {
                 tok.Append((char)context_.src.next());
             }
-            tok.Append((char)context_.src.next());
+          //  tok.Append((char)context_.src.next());
             return tok;
         }
     }
