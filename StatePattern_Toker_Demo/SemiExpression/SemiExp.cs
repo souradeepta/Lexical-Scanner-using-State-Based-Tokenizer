@@ -115,14 +115,20 @@ using TokerNameSpace;
 namespace SemiExpressionNameSpace
 
 {
-      public class SemiExp : ISemiSource
+      public class SemiExp : ISemiSource, ITokenCollection
     {
         Toker toker = null;
         List<string> semiExp = null;
         string currTok = "";
         string prevTok = "";
+        //----< implements ITokCollection iterfaces >------------------------
+
+        public CallSemiExpression(string path)
+        {   SemiExp
+            return true;
+        }
         //----< line count property >----------------------------------------
-    
+
         public SemiExp()
         {
             toker = new Toker();

@@ -50,42 +50,6 @@ namespace TokerNameSpace
     // - holds all the tokenizer states
     // - holds source of tokens
     // - internal qualification limits access to this assembly
-    public class TokenContext
-    {
-        public List<string> SpecialSingleCharsList { get; set; }
-        public List<string> SpecialDoubleCharsList { get; set; }
-
-        internal TokenContext()
-        {
-            ws_ = new WhiteSpaceState(this);
-            ps_ = new PunctState(this);
-            as_ = new AlphaState(this);
-            sqs_ = new SingleQuoteState(this);
-            dqs_ = new DoubleQuoteState(this);
-            ccs_ = new CCommentState(this);
-            cppcs_ = new CppCommentState(this);
-            dps_ = new DoublePunctCharState(this);
-            sps_ = new SinglePunctCharState(this);
-
-            currentState_ = ws_;
-
-            SpecialSingleCharsList = new List<string> { "<", ">", "[", "]", "(", ")", "{", "}", ":", "=", "+", "-", "*" };
-                                                       
-            SpecialDoubleCharsList = new List<string> {"!=", "==", ">=", "<=", "&&", "||", "--", "++", "::","+=", "-=", "*=",
-                                                             "/=", "%=","&=", "^=", "|=", "<<", ">>" };
-        }
-        internal WhiteSpaceState ws_ { get; set; }
-        internal PunctState ps_ { get; set; }
-        internal AlphaState as_ { get; set; }
-        internal SingleQuoteState sqs_ { get; set; }
-        internal DoubleQuoteState dqs_ { get; set; }
-        internal CCommentState ccs_ { get; set; }
-        internal CppCommentState cppcs_ { get; set; }
-        internal SinglePunctCharState sps_ { get; set; }
-        internal DoublePunctCharState dps_ { get; set; }
-
-        internal TokenState currentState_ { get; set; }
-        internal ITokenSource src { get; set; }  
-    }
+   
     }
 

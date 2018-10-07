@@ -12,9 +12,10 @@
  * of information to parse for code analysis.  SemiExpressions are token
  * sequences that end in "{" or "}" or ";
  * 
- * SemiExp works with a private Toker object attached to a specified file.
- * It provides a get() function that extracts semiExpressions from the file
- * while filtering out comments and merging quotes into single tokens.
+ *  Class Operations:
+ * -------------------
+ * - Declares operations expected of any source of tokens
+ * - Typically we would use either files or strings.  
  * 
  * Required Files:
  * ---------------
@@ -48,11 +49,6 @@ using System.Threading.Tasks;
 
 namespace SemiExpressionNameSpace
 {
-    ///////////////////////////////////////////////////////////////////
-    // ISemiSource interface
-    // - Declares operations expected of any source of tokens
-    // - Typically we would use either files or strings.  
-
     public interface ISemiSource
     {
         int FindFirst(string str);
