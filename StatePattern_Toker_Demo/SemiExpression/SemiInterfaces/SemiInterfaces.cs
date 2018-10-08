@@ -26,14 +26,6 @@
  * TokenSourceFile.cs
  * TokenState.cs
  * TokerInterfaces.cs
- * AlphaState.cs
- * PunctState.cs
- * WhiteSpaceState.cs
- * CCommentState.cs
- * CppCommentState.cs
- * SingleQuoteState.cs
- * DoubleQuoteState.cs
- * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -64,7 +56,6 @@ namespace SemiExpressionNameSpace
         void display();
         string displayStr();
         bool getSemi();
-        bool remove(int i);
-        bool remove(string token);
+      
     }
 }

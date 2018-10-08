@@ -361,29 +361,7 @@ namespace SemiExpressionNameSpace
             }
             return copy;
         }
-        //----< remove a token from semiExpression >-------------------------
 
-        public bool remove(int i)
-        {
-            if (0 <= i && i < semiExp.Count)
-            {
-                semiExp.RemoveAt(i);
-                return true;
-            }
-            return false;
-        }
-        //----< remove a token from semiExpression >-------------------------
-
-        public bool remove(string token)
-        {
-            if (semiExp.Contains(token))
-            {
-                semiExp.Remove(token);
-                return true;
-            }
-            return false;
-        }
-        
 #if (TEST_SEMI)
 
         //----< test stub >--------------------------------------------------
