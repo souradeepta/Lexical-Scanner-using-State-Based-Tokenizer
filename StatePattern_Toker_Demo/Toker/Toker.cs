@@ -661,8 +661,8 @@ namespace TokerNameSpace
       {
         Console.Write("\n  processing file: {0}", fqf);
       }
-      toker.setSpecialSingleChars(new List<string> { "<",">","&" });
-      toker.setSpecialCharPairs(new List<string> { "<<","&&" });
+      toker.setSpecialSingleChars(new List<string> { "<",">" });
+      toker.setSpecialCharPairs(new List<string> { "<<","==" });
 
       while (!toker.isDone())
       {
@@ -684,9 +684,11 @@ namespace TokerNameSpace
 
       Console.Write(msg);
       
-      testToker("../../TestSemi.txt");
+      testToker("../../TestTokenizer.txt");
+      testToker2("../../TestTokenizer.txt");
+
            
-      Console.Write("\n\n");
+      Console.ReadLine();
     }
   }
 }

@@ -21,7 +21,7 @@ namespace TestSuite
             //  string testFile = "../../testSemi.txt";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
-            Console.Write("\n  processing file: {0}\n", testFile);
+          //  Console.Write("\n  processing file: {0}\n", testFile);
             while (test.getSemi())
                 test.display();
             return true;

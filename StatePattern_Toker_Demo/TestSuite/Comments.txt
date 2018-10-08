@@ -1,0 +1,5 @@
+//C style comment test
+/* CPP
+Style
+Comment
+Test */
