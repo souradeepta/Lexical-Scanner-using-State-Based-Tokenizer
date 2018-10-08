@@ -1,0 +1,7 @@
+StringBuilder temp = new StringBuilder();
+temp.Append("{");
+temp.Append(String.Format("{0,-10}", type)).Append(" : ");
+temp.Append(String.Format("{0,-10}", name)).Append(" : ");
+temp.Append(String.Format("{0,-5}", beginLine.ToString()));	
+temp.Append(String.Format("{0,-5}", endLine.ToString()));    
+temp.Append("}");

@@ -1,8 +1,15 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// TokenContext.cs - Uses Token Context                                     //
-// ver 1.0                                                                 //
-// Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
-///////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////
+// TokenContext.cs - Uses Token Context                                   //
+// ver 1.0                                                                //
+// Language:    C#, Visual Studio 2017, .Net Framework 4.7                // 
+// Platform:    HP Pavillion , Win 10                                     //
+// Application: Pr#2 , CSE681, Fall 2018                                  //
+// Authors:  -  Jim Fawcett,                                              // 
+//                CSE681 - Software Modeling and Analysis, Fall 2018      // 
+//           -  Souradeepta Biswas,                                       // 
+//                CSE681 - Software Modeling and Analysis, Fall 2018      //
+//                sobiswas@syr.edu                                        //
+////////////////////////////////////////////////////////////////////////////
 /*
  * Package Operations:
  * -------------------
@@ -14,9 +21,15 @@
  * TokenContext.cs
  * TokenSourceFile.cs
  * TokenState.cs
+ * TokerInterfaces.cs
  * AlphaState.cs
  * PunctState.cs
  * WhiteSpaceState.cs
+ * CCommentState.cs
+ * CppCommentState.cs
+ * SingleQuoteState.cs
+ * DoubleQuoteState.cs
+ * DoublePunctCharState.cs
  * 
  * Maintenance History
  * -------------------
@@ -37,37 +50,6 @@ namespace TokerNameSpace
     // - holds all the tokenizer states
     // - holds source of tokens
     // - internal qualification limits access to this assembly
-    public class TokenContext
-    {
-        internal TokenContext()
-        {
-            ws_ = new WhiteSpaceState(this);
-            ps_ = new PunctState(this);
-            as_ = new AlphaState(this);
-            // more states here
-            sqs_ = new SingleQuoteState(this);
-            dqs_ = new DoubleQuoteState(this);
-            ccs_ = new CCommentState(this);
-            cppcs_ = new CppCommentState(this);
-            sps_ = new SpecialPunctState(this);
-
-
-
-            currentState_ = ws_;
-        }
-        internal WhiteSpaceState ws_ { get; set; }
-        internal PunctState ps_ { get; set; }
-        internal AlphaState as_ { get; set; }
-        internal SingleQuoteState sqs_ { get; set; }
-        internal DoubleQuoteState dqs_ { get; set; }
-        internal CCommentState ccs_ { get; set; }
-        internal CppCommentState cppcs_ { get; set; }
-        internal SpecialPunctState sps_ { get; set; }
-
-        // more states here
-
-        internal TokenState currentState_ { get; set; }
-        internal ITokenSource src { get; set; }  // can hold any derived class
-    }
+   
     }
 

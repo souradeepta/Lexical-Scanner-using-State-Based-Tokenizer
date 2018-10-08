@@ -1,0 +1,2 @@
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\ITokenCollection\obj\Debug\ITokenCollection.csprojAssemblyReference.cache
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\ITokenCollection\obj\Debug\ITokenCollection.csproj.CoreCompileInputs.cache

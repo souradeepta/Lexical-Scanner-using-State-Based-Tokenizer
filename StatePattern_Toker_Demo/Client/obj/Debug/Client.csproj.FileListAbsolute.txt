@@ -1,0 +1,14 @@
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\Client.exe.config
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\Client.exe
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\Client.pdb
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\SemiExpression.exe
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\Toker.exe
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\SemiExpression.pdb
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\SemiExpression.exe.config
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\Toker.pdb
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\bin\Debug\Toker.exe.config
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\obj\Debug\Client.exe
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\Client\obj\Debug\Client.pdb

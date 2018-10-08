@@ -1,0 +1,60 @@
+
+                                      CodeAnalysis - Version 1.8
+    ==============================================================================================
+     Sun Oct  7 23:57:19 2018
+     Path: "C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo"
+     Args: *.h, *.cpp, *.cs, /v, /m, /r, /f, /p
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1     483      53
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 Client.cs   namespace                             Client      10      23       3
+                 Client.cs       class                             Client      12      21       2
+                 Client.cs    function                               Main      14      17       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                SemiExp.cs   namespace            SemiExpressionNameSpace     109     309      43
+                SemiExp.cs       class                            SemiExp     111     307      42
+                SemiExp.cs    function                 CallSemiExpression     119       5       1
+                SemiExp.cs    function                            SemiExp     127       6       1
+                SemiExp.cs    function                          FindFirst     136       6       1
+                SemiExp.cs    function                           FindLast     145       6       1
+                SemiExp.cs    function                               open     154       3       1
+                SemiExp.cs    function                              close     160       3       1
+                SemiExp.cs    function                       isTerminator     166      21       2
+                SemiExp.cs    function                                get     190      12       2
+                SemiExp.cs    function                             IsPunc     205       3       1
+                SemiExp.cs    function                       isWhiteSpace     212       4       1
+                SemiExp.cs    function                               trim     218      10       2
+                SemiExp.cs    function                            getSemi     230      26       3
+                SemiExp.cs    function                             insert     272       8       2
+                SemiExp.cs    function                                Add     283       4       1
+                SemiExp.cs    function                                Add     290       4       1
+                SemiExp.cs    function                         initialize     297       6       1
+                SemiExp.cs    function                              flush     306       3       1
+                SemiExp.cs    function                            display     313       4       1
+                SemiExp.cs    function                         displayStr     320      14       2
+                SemiExp.cs    function                              clone     358       8       2
+                SemiExp.cs    function                             remove     369       8       2
+                SemiExp.cs    function                             remove     380       8       2
+                SemiExp.cs    function                               Main     395      20       1
+                SemiExp.cs       class                        DemoSemiExp     422      62       6
+                SemiExp.cs    function                        testSemiExp     424      43       4
+                SemiExp.cs    function                               Main     468      14       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+
+
+    searched    54 dirs
+   processed    34 files

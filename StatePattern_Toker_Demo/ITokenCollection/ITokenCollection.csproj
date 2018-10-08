@@ -49,11 +49,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SemiExpression\SemiExpression.csproj">
-      <Project>{8281f086-af0e-4b9c-8f2a-6cb4530d9996}</Project>
-      <Name>SemiExpression</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
