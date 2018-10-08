@@ -371,6 +371,11 @@ namespace TokerNameSpace
             return tok;
         }
     }
+
+    ///////////////////////////////////////////////////////////////////
+    // CCommentState class
+    // - extracts c style comments
+
     class CCommentState : TokenState
     {
         public CCommentState(TokenContext context)
@@ -409,6 +414,11 @@ namespace TokerNameSpace
             return tok;
         }
     }
+
+    ///////////////////////////////////////////////////////////////////
+    // CppCommentState class
+    // - extracts c++ style comments
+
     class CppCommentState : TokenState
     {
         public CppCommentState(TokenContext context)
@@ -450,6 +460,11 @@ namespace TokerNameSpace
         }
     }
 
+    ///////////////////////////////////////////////////////////////////
+    // DoublePunctCharState class
+    // - extracts special double punctuators
+
+
     class DoublePunctCharState : TokenState
     {
         public DoublePunctCharState(TokenContext context)
@@ -486,6 +501,44 @@ namespace TokerNameSpace
             return tok;
         }
     }
+    ///////////////////////////////////////////////////////////////////
+    // SinglePunctCharState class
+    // - extracts special single punctuators
+
+    class SinglePunctCharState : TokenState
+    {
+        public SinglePunctCharState(TokenContext context)
+        {
+            context_ = context;
+        }
+
+        public bool isSinglePunct(int i)
+        {
+            int nextItem = context_.src.peek();
+            if (nextItem < 0)
+                return false;
+            string single = ((char)nextItem).ToString();
+            bool result = context_.SpecialSingleCharsList.Contains(single);
+
+            return result;
+        }
+
+        override public Token getTok()
+        {
+            Token tok = new Token();
+
+            if (isSinglePunct(context_.src.peek()))
+            {
+                tok.Append((char)context_.src.next());
+            }
+            return tok;
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////
+    // DoubleQuoteState class
+    // - extracts double quoted strings
+
     class DoubleQuoteState : TokenState
     {
         public DoubleQuoteState(TokenContext context)
@@ -522,35 +575,9 @@ namespace TokerNameSpace
         }
     }
 
-    class SinglePunctCharState : TokenState
-    {
-        public SinglePunctCharState(TokenContext context)
-        {
-            context_ = context;
-        }
-
-        public bool isSinglePunct(int i)
-        {
-            int nextItem = context_.src.peek();
-            if (nextItem < 0)
-                return false;
-            string single = ((char)nextItem).ToString();
-            bool result = context_.SpecialSingleCharsList.Contains(single);
-
-            return result;
-        }
-
-        override public Token getTok()
-        {
-            Token tok = new Token();
-
-            if (isSinglePunct(context_.src.peek()))
-            {
-                tok.Append((char)context_.src.next());
-            }
-            return tok;
-        }
-    }
+    ///////////////////////////////////////////////////////////////////
+    // SingleQuoteState class
+    // - extracts single quoted strings
 
     class SingleQuoteState : TokenState
     {
@@ -585,6 +612,10 @@ namespace TokerNameSpace
             tok.Append((char)context_.src.next());
             return tok;
         }
+
+   
+
+    
     }
 #if (TEST_TOKER)
 
