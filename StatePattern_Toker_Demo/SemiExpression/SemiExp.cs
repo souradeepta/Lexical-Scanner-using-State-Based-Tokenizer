@@ -128,7 +128,6 @@ namespace SemiExpressionNameSpace
             toker = new Toker();
             semiExp = new List<string>();
             returnNewLines = true;
-            displayNewLines = false;
         }
         //---< pos of first str in semi-expression if found, -1 otherwise >--
 
@@ -343,13 +342,6 @@ namespace SemiExpressionNameSpace
             get;
             set;
         }
-        //----< determines whether new lines are displayed >-----------------
-
-        public bool displayNewLines
-        {
-            get;
-            set;
-        }
         //----< make a copy of semiEpression >-------------------------------
 
         public SemiExp clone()
@@ -374,8 +366,7 @@ namespace SemiExpressionNameSpace
 
             SemiExp test = new SemiExp();
             test.returnNewLines = true;
-            test.displayNewLines = true;
-
+          
           string testFile = "../../testSemi.txt";
           if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
