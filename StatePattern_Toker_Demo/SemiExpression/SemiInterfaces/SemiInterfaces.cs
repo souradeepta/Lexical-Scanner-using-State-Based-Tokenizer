@@ -1,9 +1,9 @@
-﻿////////////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////////////////////////////
 // SemiInterfaces.cs - List of all interfaces in the SemiExpression package  //
-// ver 1.0                                                                  //
-// Jim Fawcett, CSE681 - Software Modeling and Analysis, Fall 2018         //
-// Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
-///////////////////////////////////////////////////////////////////////////
+// ver 1.0                                                                   //
+// Jim Fawcett, CSE681 - Software Modeling and Analysis, Fall 2018           //
+// Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018    //
+///////////////////////////////////////////////////////////////////////////////
 /*
  * Package Operations:
  * -------------------

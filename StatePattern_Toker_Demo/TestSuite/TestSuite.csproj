@@ -67,6 +67,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj">
+      <Project>{2d0cb0a8-195a-463f-8bb4-4b47585f3284}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SemiExpression\SemiExpression.csproj">
       <Project>{8281f086-af0e-4b9c-8f2a-6cb4530d9996}</Project>
       <Name>SemiExpression</Name>

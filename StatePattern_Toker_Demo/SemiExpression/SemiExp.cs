@@ -39,7 +39,6 @@
  * if(semi.Equals(se)) ...            // do these semiExps have same tokens?
  * if(getSemi()) ...                  // extracts and stores next semiExp
  * int len = semi.count;              // length property
- * semi.verbose = true;               // verbose property - shows tokens
  * string tok = semi[2];              // access a semi token
  * string tok = semi[1];              // extract token
  * semi.flush();                      // removes all tokens
@@ -49,13 +48,11 @@
  * semi.Add(tokArray);                // appends array of tokens
  * semi.display();                    // sends tokens to Console
  * string show = semi.displayStr();   // returns tokens as single string
- * semi.returnNewLines = false;       // property defines newline handling
- *                                    //   default is true
- *                                    
+  *                                    
  * Maintenance History
  * ===================
  * ver 2.9 : 03 Oct 18
- * - works along with a new state-based tokenizer now and handles a few new state and comments
+ * - works along with a new state-based tokenizer now and handles a few new states and comments
  * ver 2.8 : 14 Oct 14
  * - fixed bug in extract that caused tokenizing of multiline string
  *   to loop endlessly
@@ -107,7 +104,7 @@ using TokerNameSpace;
 namespace SemiExpressionNameSpace
 
 {
-      public class SemiExp : ISemiSource, ITokenCollection
+    public class SemiExp : ISemiSource, ITokenCollection
     {
         Toker toker = null;
         List<string> semiExp = null;
@@ -127,7 +124,6 @@ namespace SemiExpressionNameSpace
         {
             toker = new Toker();
             semiExp = new List<string>();
-            returnNewLines = true;
         }
         //---< pos of first str in semi-expression if found, -1 otherwise >--
 
@@ -168,7 +164,7 @@ namespace SemiExpressionNameSpace
                 case ";": return true;
                 case "{": return true;
                 case "}": return true;
-                case ">": 
+                case ">":
                     if (this.FindFirst("#") != -1)
                         return true;
                     return false;
@@ -177,8 +173,8 @@ namespace SemiExpressionNameSpace
                         return true;
                     return false;
                 case "\r\n":
-                         return true;
-                   
+                    return true;
+
 
                 default: return false;
             }
@@ -188,15 +184,14 @@ namespace SemiExpressionNameSpace
         string get()
         {
             while (!toker.isDone())
-            {           
+            {
                 prevTok = currTok;
                 currTok = toker.getTok().ToString();
-                if (verbose)
-                    Console.Write("{0} ", currTok);
+
                 return currTok;
             }
             toker.close();
-          return null;
+            return null;
         }
         //----< is this character a punctuator> >----------------------------
 
@@ -204,7 +199,7 @@ namespace SemiExpressionNameSpace
         {
             return (Char.IsPunctuation(ch) || Char.IsSymbol(ch));
         }
-                       
+
         //----< collect semiExpression from filtered token stream >----------
 
         public bool isWhiteSpace(string tok)
@@ -227,13 +222,13 @@ namespace SemiExpressionNameSpace
 
         public bool getSemi()
         {
-            semiExp.RemoveRange(0, semiExp.Count);  
+            semiExp.RemoveRange(0, semiExp.Count);
             do
             {
                 get();
                 if (currTok == "")
-                    return false;  
-                                  
+                    return false;
+
                 semiExp.Add(currTok);
             } while (!isTerminator(currTok) || count == 0);
 
@@ -242,7 +237,7 @@ namespace SemiExpressionNameSpace
             if (semiExp.Contains("for"))
             {
                 SemiExp se = clone();
-                getSemi();                  
+                getSemi();
                 se.Add(semiExp.ToArray());
                 getSemi();
                 se.Add(semiExp.ToArray());
@@ -305,7 +300,7 @@ namespace SemiExpressionNameSpace
         {
             semiExp.RemoveRange(0, semiExp.Count);
         }
-               
+
         //----< display semiExpression on Console >--------------------------
 
         public void display()
@@ -317,31 +312,18 @@ namespace SemiExpressionNameSpace
 
         public string displayStr()
         {
-          
+
             StringBuilder disp = new StringBuilder("");
             foreach (string tok in semiExp)
             {
-             
+
                 disp.Append(tok);
-               if (tok.IndexOf('\n') != tok.Length - 1)
+                if (tok.IndexOf('\n') != tok.Length - 1)
                     disp.Append(" ");
             }
             return disp.ToString();
         }
-        //----< announce tokens when verbose is true >-----------------------
 
-        public bool verbose
-        {
-            get;
-            set;
-        }
-        //----< determines whether new lines are returned with semi >--------
-
-        public bool returnNewLines
-        {
-            get;
-            set;
-        }
         //----< make a copy of semiEpression >-------------------------------
 
         public SemiExp clone()
@@ -357,25 +339,28 @@ namespace SemiExpressionNameSpace
 #if (TEST_SEMI)
 
         //----< test stub >--------------------------------------------------
-
-        [STAThread]
-        static void Main(string[] args)
+        class DemoSemi
         {
-            Console.Write("\n  Testing semiExp Operations");
-            Console.Write("\n ============================\n");
+            public bool testSemi(string path)
+            {
+                SemiExp Semitest = new SemiExp();
 
-            SemiExp test = new SemiExp();
-            test.returnNewLines = true;
-          
-          string testFile = "../../testSemi.txt";
-          if (!test.open(testFile))
-                Console.Write("\n  Can't open file {0}", testFile);
-            Console.Write("\n  processing file: {0}\n", testFile);
-            while (test.getSemi())
-                test.display();
-
-            Console.ReadLine();
-        }
+                SemiExp test = new SemiExp();
+                string testFile = path;
+                if (!test.open(testFile))
+                    Console.Write("\n  Can't open file {0}", testFile);
+                while (test.getSemi())
+                    test.display();
+                return true;
+            }
+            static void Main(string[] args)
+            {
+                Console.Write("\n  Testing semiExp Operations");
+                Console.Write("\n ============================\n");
+                DemoSemi s1 = new DemoSemi();
+                s1.testSemi("../../testSemi.txt");
+            }
 #endif
+        }
     }
 }

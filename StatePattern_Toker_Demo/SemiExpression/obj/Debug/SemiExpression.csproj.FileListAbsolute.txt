@@ -1,11 +1,11 @@
-C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.csprojAssemblyReference.cache
-C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.csproj.CoreCompileInputs.cache
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\bin\Debug\SemiExpression.exe.config
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\bin\Debug\SemiExpression.exe
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\bin\Debug\SemiExpression.pdb
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\bin\Debug\Toker.exe
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\bin\Debug\Toker.pdb
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\bin\Debug\Toker.exe.config
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.csprojAssemblyReference.cache
+C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.csproj.CoreCompileInputs.cache
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.csproj.CopyComplete
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.exe
 C:\Users\TEMP\Documents\GitHub\Lexical-Scanner-using-State-Based-Tokenizer\StatePattern_Toker_Demo\SemiExpression\obj\Debug\SemiExpression.pdb

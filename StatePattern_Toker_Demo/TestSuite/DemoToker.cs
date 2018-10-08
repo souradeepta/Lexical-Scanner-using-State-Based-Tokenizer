@@ -1,4 +1,27 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////
+// DemoToker.cs - Contains a test call class for Tokenizer                //
+// ver 1.0                                                                //
+// Souradeepta Biswas, CSE681 - Software Modeling and Analysis, Fall 2018 //
+////////////////////////////////////////////////////////////////////////////
+/*
+ * 
+ * Required Files:
+ * ---------------
+ * SemiExp.cs
+ * SemiInterfaces.cs
+ * Toker.cs
+ * TokenContext.cs
+ * TokenSourceFile.cs
+ * TokenState.cs
+ * TokerInterfaces.cs
+ * 
+ * Maintenance History
+ * -------------------
+ * ver 1.0 : 8 0ct 2018
+ * - first release
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
